@@ -24,12 +24,18 @@ import requests
 from lxml import etree
 
 
-def spider_qiushi(html):
+def spider_qiushi(page):
     """
-    解析网页，并将解析内容写入到qiushi.json
-    :param html: string 网页源码
-    :return:
+    page: 页码
+    作用：解析网页，并将解析内容写入到qiushi.json
     """
+    url = 'https://www.qiushibaike.com/text/page/{}/'.format(int(page))
+    ua_header = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0"
+    }
+    response = requests.get(url, headers=ua_header)
+    print("status_code:%d" % response.status_code)
+    html = response.text
     xml = etree.HTML(html)
     article_box = xml.xpath('//div[contains(@id, "qiushi_tag_")]')
     item = {}
@@ -56,16 +62,7 @@ def spider_qiushi(html):
 
 def main():
     page = 2
-    url = 'https://www.qiushibaike.com/text/page/{}/'.format(page)
-    ua_header = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0"
-    }
-    response = requests.get(url, headers=ua_header)
-    print("status_code:%d" % response.status_code)
-    html = response.text
-
-
-    spider_qiushi(html)
+    spider_qiushi(page)
 
 
 if __name__ == "__mian__":
