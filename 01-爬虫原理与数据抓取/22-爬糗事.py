@@ -29,7 +29,7 @@ def spider_qiushi(page):
     page: 页码
     作用：解析网页，并将解析内容写入到qiushi.json
     """
-    url = 'https://www.qiushibaike.com/text/page/{}/'.format(int(page))
+    url = 'https://www.qiushibaike.com/text/page/{}/'.format(page)
     ua_header = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0"
     }
@@ -40,7 +40,6 @@ def spider_qiushi(page):
     article_box = xml.xpath('//div[contains(@id, "qiushi_tag_")]')
     item = {}
     for article in article_box:
-        username = article.xpath('./div[1]/a[2]/h2')[0].text.strip()
         username = article.xpath('./div[1]/a[2]/h2')[0].text.strip()
         content = article.xpath('.//div[@class="content"]/span[1]')[0].text.strip()
         goodpoint = article.xpath('.//div[@class="stats"]/span[1]//i')[0].text.strip()
@@ -61,9 +60,11 @@ def spider_qiushi(page):
 
 
 def main():
-    page = 2
+    print('start work')
+    page = int(input('请输入页码：'))
     spider_qiushi(page)
+    print('complete work')
 
 
-if __name__ == "__mian__":
+if __name__ == "__main__":
     main()

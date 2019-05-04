@@ -54,29 +54,40 @@ class ParseWorker(threading.Thread):
                 break
             html, page = item
             print("{}处理页码-{}-开始".format(self.name, page))
-            self.parse_html(html)
+            self.parse_html(html, page)
             print("{}处理页码-{}-结束".format(self.name, page))
             # 本次任务完成
             self.q.task_done()
 
     @staticmethod
-    def parse_html(html):
+    def parse_html(html, page):
         xml = etree.HTML(html)
         article_box = xml.xpath('//div[contains(@id, "qiushi_tag_")]')
+
+        def if_exist(some_thing):
+            if some_thing:
+                return some_thing[0].text.strip()
+            else:
+                return None
+
         for article in article_box:
-            username = article.xpath('./div[1]/a[2]/h2')[0].text.strip()
-            content = article.xpath('.//div[@class="content"]/span[1]')[0].text.strip()
-            goodpoint = article.xpath('.//div[@class="stats"]/span[1]//i')[0].text.strip()
-            comment = article.xpath('.//div[@class="stats"]/span[2]//i')[0].text.strip()
+            try:
+                username = if_exist(article.xpath('./div[@class="author clearfix"]//h2'))
+                content = if_exist(article.xpath('.//div[@class="content"]/span[1]'))
+                goodpoint = if_exist(article.xpath('.//div[@class="stats"]/span[1]//i'))
+                comment = if_exist(article.xpath('.//div[@class="stats"]/span[2]//i'))
 
-            item = {
-                'username': username,
-                'content': content,
-                'goodpoint': goodpoint,
-                "comment": comment
-            }
+                item = {
+                    'username': username,
+                   'content': content,
+                    'goodpoint': goodpoint,
+                    "comment": comment
+                }
+            except Exception as e:
+                print('Error:{}'.format(e))
+                item = {}
 
-            with open('qiushi.json', 'a') as fw:
+            with open('qiushi_page{}.json'.format(page), 'a') as fw:
                 fw.write(
                     json.dumps(item, ensure_ascii=False) + '\n'
                 )
@@ -92,21 +103,23 @@ class MyThreadQueue:
         self.threads = []
 
     def start_work(self):
-        # 开启页面爬虫
+        # 开启页面爬虫 单队列
         threads_name = ['线程{}号'.format(i) for i in range(self.num_worker_threads)]
         if self.other_q is None:
+            # 2 处理网页
             for i in range(self.num_worker_threads):
                 t = self.worker(threads_name[i], self.q)
                 t.start()
                 self.threads.append(t)
         else:
+            # 1 爬取网页 双队列
             for i in range(self.num_worker_threads):
                 t = self.worker(threads_name[i], self.q, self.other_q)
                 t.start()
                 self.threads.append(t)
-
-        for item in self.source():
-            self.q.put(item)
+            # 初始队列需要手动投入任务
+            for item in self.source():
+                self.q.put(item)
 
     def join_work(self):
         # block until all tasks are done
@@ -120,7 +133,10 @@ class MyThreadQueue:
 
 
 def source():
-    return range(1, 7)
+    """
+    :return: 爬取页码范围
+    """
+    return range(1, 3)
 
 
 def main():
@@ -129,9 +145,14 @@ def main():
 
     spider_page = MyThreadQueue(page_queue, 3, SpiderWorker, source, data_queue)
     parse_html = MyThreadQueue(data_queue, 3, ParseWorker, source)
-
+    print('start work')
     spider_page.start_work()
     parse_html.start_work()
 
     spider_page.join_work()
     parse_html.join_work()
+    print('done')
+
+
+if __name__ == "__main__":
+    main()
