@@ -19,7 +19,7 @@ class ItcastSpider(scrapy.Spider):
         # with open('itcast.html', 'wb') as fw:
         #     fw.write(response.body)
 
-        teacher_info = []
+        # teacher_info = []
         teacher_list = response.xpath('//div[@class="li_txt"]')
         for teacher in  teacher_list:
 
@@ -33,15 +33,17 @@ class ItcastSpider(scrapy.Spider):
             item['title'] = title[0]
             item['info'] = info[0]
 
+            yield item
+
             # for csv
             # cur_code = locale.getpreferredencoding(False)  # 获取当前用户可能使用的编码 'UTF-8'
             # item['name'] = name[0].encode(cur_code)
             # item['title'] = title[0].encode(cur_code)
             # item['info'] = info[0].encode(cur_code)
 
-            teacher_info.append(item)
+            # teacher_info.append(item)
 
-        return teacher_info
+        # return teacher_info
         # 返回到外面 可以通过 scrapy crawl itcast -o <filename>
         # filename 可以为 .json .csv 等
         # 输出.json 为Unicode www.json.cn 可以看到转换后的结果

@@ -3,6 +3,7 @@ import threading
 import json
 from lxml import etree
 import requests
+import time
 
 
 class SpiderWorker(threading.Thread):
@@ -37,6 +38,9 @@ class SpiderWorker(threading.Thread):
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0"
         }
         response = requests.get(url, headers=ua_header)
+
+        time.sleep(1)  # 下载延时,使得每个请求发出去有短暂的间隔
+
         print("status_code:%d" % response.status_code)
         html = response.text
         return html

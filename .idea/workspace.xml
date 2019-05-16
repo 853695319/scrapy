@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84a6837b-cc07-40b6-a52e-14f8f6625bd1" name="Default Changelist" comment="init mySpider">
-      <change afterPath="$PROJECT_DIR$/mySpider/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mySpider/mySpider/spiders/itcastspider.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="84a6837b-cc07-40b6-a52e-14f8f6625bd1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/scrapy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/scrapy.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mySpider/mySpider/items.py" beforeDir="false" afterPath="$PROJECT_DIR$/mySpider/mySpider/items.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01-爬虫原理与数据抓取/23-多线程爬糗事.py" beforeDir="false" afterPath="$PROJECT_DIR$/01-爬虫原理与数据抓取/23-多线程爬糗事.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mySpider/mySpider/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/mySpider/mySpider/pipelines.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mySpider/mySpider/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mySpider/mySpider/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mySpider/mySpider/spiders/itcastspider.py" beforeDir="false" afterPath="$PROJECT_DIR$/mySpider/mySpider/spiders/itcastspider.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,29 +16,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mySpider/mySpider/items.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mySpider/mySpider/spiders/itcastspider.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -57,11 +34,13 @@
         <option value="$PROJECT_DIR$/24-test.py" />
         <option value="$PROJECT_DIR$/22-爬糗事.py" />
         <option value="$PROJECT_DIR$/23-多线程爬糗事.py" />
-        <option value="$PROJECT_DIR$/mySpider/mySpider/settings.py" />
         <option value="$PROJECT_DIR$/mySpider/mySpider/items.py" />
         <option value="$PROJECT_DIR$/mySpider/tea.json" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/mySpider/mySpider/spiders/itcastspider.py" />
+        <option value="$PROJECT_DIR$/mySpider/mySpider/settings.py" />
+        <option value="$PROJECT_DIR$/mySpider/mySpider/pipelines.py" />
+        <option value="$PROJECT_DIR$/01-爬虫原理与数据抓取/23-多线程爬糗事.py" />
       </list>
     </option>
   </component>
@@ -79,6 +58,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -86,16 +66,10 @@
               <item name="scrapy" type="b2602c69:ProjectViewProjectNode" />
               <item name="scrapy" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="scrapy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="scrapy" type="462c0819:PsiDirectoryNode" />
-              <item name="mySpider" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -217,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1556955437912</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="init mySpider">
+      <created>1556972341638</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1556972341638</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -233,9 +214,9 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3273453" />
+      <window_info anchor="bottom" x="73" y="35" width="1289" height="403" id="Version Control" order="7" sideWeight="0.4996066" type="FLOATING" weight="0.3272727" />
       <window_info anchor="bottom" x="67" y="62" width="1171" height="544" id="Terminal" order="8" type="FLOATING" weight="0.28346458" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5003934" side_tool="true" weight="0.3272727" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -304,16 +285,6 @@
     <entry file="file://$PROJECT_DIR$/qiushi_page6.json" />
     <entry file="file://$PROJECT_DIR$/qiushi_page1.json" />
     <entry file="file://$PROJECT_DIR$/qiushi_page2.json" />
-    <entry file="file://$PROJECT_DIR$/01-爬虫原理与数据抓取/23-多线程爬糗事.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="136" column="18" selection-start-line="136" selection-start-column="18" selection-end-line="136" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/01-爬虫原理与数据抓取/22-爬糗事.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -335,23 +306,8 @@
     <entry file="file://$PROJECT_DIR$/mySpider/scrapy.cfg">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/mySpider/mySpider/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="60" column="9" selection-start-line="60" selection-start-column="9" selection-end-line="60" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mySpider/itcast.html" />
-    <entry file="file://$PROJECT_DIR$/mySpider/tea.json" />
     <entry file="file://$PROJECT_DIR$/mySpider/tea.csv" />
-    <entry file="file://$PROJECT_DIR$/mySpider/mySpider/items.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/lib/python3.6/locale.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="11856">
@@ -366,15 +322,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/-1045738440/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1043">
+          <caret line="341" column="4" selection-start-line="341" selection-start-column="4" selection-end-line="341" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mySpider/mySpider/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="73" column="29" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mySpider/mySpider/items.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.venv/lib/python3.6/site-packages/requests/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-627">
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mySpider/mySpider/spiders/itcastspider.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+        <state relative-caret-position="18">
+          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01-爬虫原理与数据抓取/23-多线程爬糗事.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="741">
+          <caret line="39" column="29" lean-forward="true" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mySpider/mySpider/pipelines.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mySpider/tea.json">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
