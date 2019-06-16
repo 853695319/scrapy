@@ -6,18 +6,18 @@ WORKDIR /app
 COPY ./requirements.txt /app
 
 # Using pip
-# RUN python3 -m pip install -r requirements.txt
+RUN python3 -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple/ -r requirements.txt
 
 # Using pipenv:
 # locking 过程比较久，更换国内源
-RUN python3 -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple/ pipenv \
-    && pipenv --pypi-mirror https://pypi.tuna.tsinghua.edu.cn/simple/ install -r requirements.txt
+# RUN python3 -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple/ pipenv \
+#     && pipenv --pypi-mirror https://pypi.tuna.tsinghua.edu.cn/simple/ install -r requirements.txt
 
 COPY . /app
+COPY ./.ssh/id_rsa.pub /root/.ssh/authorized_keys
 
 # SSH守护进程端口
 EXPOSE 22
 
-RUN chmod +x /app/run.sh
 # 不能用 pipenv shell 因为这个是在后台运行的
-CMD ["bash", "/app/run.sh"]
+CMD ["/usr/sbin/sshd", "-D"]

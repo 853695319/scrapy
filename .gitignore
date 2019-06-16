@@ -109,3 +109,4 @@ venv.bak/
 
 /html
 authorized_keys
+.ssh
