@@ -14,11 +14,9 @@ COPY . /app
 # SSH service
 RUN apt-get update \
     && apt-get install -y openssh-server \
-    && mkdir /var/run/sshd \
-    # 设置根用户的密码 THEPASSWORDYOUCREATED 替换成自己想要的密码
-    && echo 'root:THEPASSWORDYOUCREATED' | chpasswd \
-    # 允许登录根用户
-    && sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config \
+    && mkdir /var/run/sshd /root/.ssh \
+    # 通过秘钥登录
+    && ./authorized_keys /root/.ssh/authorized_keys \
     # SSH login fix. Otherwise user is kicked off after login
     && sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 
