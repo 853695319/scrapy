@@ -8,7 +8,8 @@ RUN apt-get update \
     && sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 
 # 通过秘钥登录
-COPY ./authorized_keys /root/.ssh/authorized_keys
+COPY ./id_rsa.pub /tmp/id_rsa.pub
+RUN cat /tmp/id_ras.pub >> /root/.ssh/authorized_keys && rm -f /tmp/id_rsa.pub
 
 # If you’re setting values in the Dockerfile using ENV, you need to push them to a shell initialization file like the /etc/profile example in the Dockerfile above.
 ENV NOTVISIBLE "in users profile"
