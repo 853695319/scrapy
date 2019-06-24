@@ -10,7 +10,7 @@ from selenium.webdriver.common.keys import Keys
 # driver = webdriver.PhantomJS()
 
 # 如果没有在环境变量指定PhantomJS位置
-driver = webdriver.PhantomJS(executable_path=r"./phantomjs.exe")
+driver = webdriver.PhantomJS(executable_path=r"L:\code\scrapy\Selenium\phantomjs.exe")
 
 # get方法会一直等到页面被完全加载，然后才会继续程序，通常测试会在这里选择 time.sleep(2)
 driver.get("http://www.baidu.com/")
@@ -25,7 +25,7 @@ print(data)
 print(driver.title)
 
 # 生成当前页面快照并保存
-driver.save_screenshot("baidu.png")
+driver.save_screenshot("baidu.png")  # It should end with a `.png`
 
 # id="kw"是百度搜索输入框，输入字符串"长城"
 driver.find_element_by_id("kw").send_keys("长城")
