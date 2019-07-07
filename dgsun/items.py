@@ -10,5 +10,12 @@ import scrapy
 
 class DgsunItem(scrapy.Item):
     # define the fields for your item here like:
-    # name = scrapy.Field()
+    # 每个帖子的标题
+    title = scrapy.Field()
+    # 每个帖子的编号
+    number = scrapy.Field()
+    # 每个帖子的文字内容
+    content = scrapy.Field()
+    # 每个帖子的url
+    url = scrapy.Field()
     pass
