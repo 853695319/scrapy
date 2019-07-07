@@ -16,10 +16,11 @@ class SunSpider(CrawlSpider):
         # 也就是默认有callback就不follow,没callback就follow
 
         # 页码
-        # Rule(
-        #     LinkExtractor(allow=r'type=4&page=\d*'),
-        #     follow=False
-        # ),
+        Rule(
+            LinkExtractor(allow=r'type=4&page=\d*'),
+            follow=True  # follow=True,那么爬取到符合规则的URL，就会不断抽取URL,可以爬取全部分页
+            # follow=False # 只抽取当前页面一次，不follow抽取的URL，只是当前页
+        ),
 
         # 处理帖子内容
         Rule(
