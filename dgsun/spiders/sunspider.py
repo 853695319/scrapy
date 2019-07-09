@@ -4,7 +4,6 @@ from scrapy.linkextractors import LinkExtractor
 from scrapy.spiders import CrawlSpider, Rule
 from dgsun.items import DgsunItem
 
-
 class SunSpider(CrawlSpider):
     name = 'sun'
     allowed_domains = ['wz.sun0769.com']
